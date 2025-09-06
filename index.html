@@ -36,6 +36,24 @@
         .glass-button:hover {
             box-shadow: 0 0 16px #f472b6, 0 0 32px #f472b6, 0 0 48px #f472b6;
         }
+        .carousel-container {
+            overflow: hidden;
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-card {
+            min-width: 100%;
+            padding: 1rem;
+            flex-shrink: 0;
+            box-sizing: border-box;
+        }
+        @media (min-width: 768px) {
+            .carousel-card {
+                min-width: 33.333333%;
+            }
+        }
     </style>
 </head>
 <body class="text-gray-200">
@@ -49,7 +67,7 @@
                 </svg>
                 <span class="text-xl font-semibold text-white">Skin Wellness Clinic</span>
             </div>
-            <a href="https://wa.me/919214252580" target="_blank" class="px-4 py-2 bg-fuchsia-400 text-slate-950 rounded-lg shadow-md hover:bg-fuchsia-500 transition-colors duration-300">
+            <a href="https://wa.me/911234567890" target="_blank" class="px-4 py-2 bg-fuchsia-400 text-slate-950 rounded-lg shadow-md hover:bg-fuchsia-500 transition-colors duration-300">
                 Chat Now
             </a>
         </div>
@@ -57,14 +75,14 @@
 
     <!-- Hero Section -->
     <main class="container mx-auto px-6 py-12 md:py-24">
-        <div class="text-center glass-container p-8 md:p-12">
+        <div class="text-center glass-container p-8 md:p-12 mb-16">
             <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
                 Healthy, Radiant Skin Starts Here.
             </h1>
             <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
                 Expert dermatological care tailored to your unique needs. We believe in a personalized approach to achieve lasting skin health.
             </p>
-            <a href="https://wa.me/919214252580" target="_blank" class="inline-block px-8 py-4 bg-fuchsia-400 text-slate-950 text-lg font-semibold rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105 glass-button">
+            <a href="https://wa.me/911234567890" target="_blank" class="inline-block px-8 py-4 bg-fuchsia-400 text-slate-950 text-lg font-semibold rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105 glass-button">
                 Book a Free Consultation on WhatsApp
             </a>
         </div>
@@ -73,7 +91,7 @@
     <!-- Features/Services Section -->
     <section class="py-16">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Our Minimalist Approach</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-12">Our Minimalist Approach</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <!-- Feature 1 -->
                 <div class="p-8 rounded-xl glass-container">
@@ -111,6 +129,124 @@
         </div>
     </section>
 
+    <!-- Clinic Photos Carousel -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center">Our Clinic</h2>
+            <div class="relative">
+                <div id="photo-carousel" class="carousel-container rounded-xl glass-container">
+                    <div class="carousel-track flex">
+                        <div class="carousel-card p-4">
+                            <img src="https://placehold.co/1200x800/282a36/f472b6?text=Clinic+Interior+1" alt="Clinic interior photo 1" class="w-full rounded-xl object-cover h-64 md:h-96">
+                        </div>
+                        <div class="carousel-card p-4">
+                            <img src="https://placehold.co/1200x800/282a36/f472b6?text=Clinic+Lobby" alt="Clinic lobby photo" class="w-full rounded-xl object-cover h-64 md:h-96">
+                        </div>
+                        <div class="carousel-card p-4">
+                            <img src="https://placehold.co/1200x800/282a36/f472b6?text=Treatment+Room" alt="Treatment room photo" class="w-full rounded-xl object-cover h-64 md:h-96">
+                        </div>
+                        <div class="carousel-card p-4">
+                            <img src="https://placehold.co/1200x800/282a36/f472b6?text=Clinic+Interior+2" alt="Clinic interior photo 2" class="w-full rounded-xl object-cover h-64 md:h-96">
+                        </div>
+                    </div>
+                </div>
+                <button onclick="prevSlide('photo-carousel', 'photo-track')" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                </button>
+                <button onclick="nextSlide('photo-carousel', 'photo-track')" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctor Profile Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8">Meet Our Doctor</h2>
+            <div class="glass-container max-w-2xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-shrink-0">
+                    <svg class="w-48 h-48 text-fuchsia-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="7" r="4"></circle>
+                        <path d="M12 11c-2.3 0-4.5 1.7-4.5 4.5v3.5a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1v-3.5C16.5 12.7 14.3 11 12 11z"></path>
+                    </svg>
+                </div>
+                <div class="text-left">
+                    <h3 class="text-2xl font-bold text-white">Dr. Sarah Thompson</h3>
+                    <p class="text-fuchsia-300">Board-Certified Dermatologist</p>
+                    <p class="mt-4 text-gray-300">Dr. Thompson is a passionate and dedicated dermatologist with over 15 years of experience. She specializes in cosmetic dermatology and personalized skincare regimens, helping patients of all ages achieve their best skin health. Her philosophy is centered on building trust and providing transparent, evidence-based care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Carousel -->
+    <section class="py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 text-center">What Our Patients Say</h2>
+            <div class="relative">
+                <div id="testimonial-carousel" class="carousel-container rounded-xl glass-container">
+                    <div class="carousel-track flex" id="testimonial-track">
+                        <div class="carousel-card p-6">
+                            <p class="text-lg text-gray-300 italic mb-4">"The care I received was outstanding. Dr. Thompson took the time to listen to my concerns and created a plan that truly transformed my skin. I couldn't be happier with the results!"</p>
+                            <p class="text-fuchsia-400 font-semibold">- Jane Doe</p>
+                        </div>
+                        <div class="carousel-card p-6">
+                            <p class="text-lg text-gray-300 italic mb-4">"I highly recommend this clinic. The staff is friendly, the clinic is beautiful, and the treatments are effective. It's a game-changer for my skin routine."</p>
+                            <p class="text-fuchsia-400 font-semibold">- John Smith</p>
+                        </div>
+                        <div class="carousel-card p-6">
+                            <p class="text-lg text-gray-300 italic mb-4">"Finally, a dermatologist who understands my skin. The personalized approach made all the difference. My acne issues are completely resolved!"</p>
+                            <p class="text-fuchsia-400 font-semibold">- Emily Chen</p>
+                        </div>
+                    </div>
+                </div>
+                <button onclick="prevSlide('testimonial-carousel', 'testimonial-track')" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" /></svg>
+                </button>
+                <button onclick="nextSlide('testimonial-carousel', 'testimonial-track')" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/20 text-white p-3 rounded-full hover:bg-white/30 transition-colors duration-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" /></svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI-Powered Skincare Tip Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6 text-center glass-container p-8 md:p-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">✨ AI-Powered Skincare Tips</h2>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+                Enter your skin type below to get a personalized tip from our AI dermatologist.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <input type="text" id="skinTypeInput" placeholder="e.g., Oily, Dry, Combination" class="flex-1 w-full md:w-auto px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-400">
+                <button id="generateTipButton" class="px-8 py-4 bg-fuchsia-400 text-slate-950 font-semibold rounded-lg shadow-xl glass-button">
+                    ✨ Get My Skincare Tip
+                </button>
+            </div>
+            <div id="loadingIndicator" class="mt-8 text-fuchsia-400 text-lg hidden">Generating tip...</div>
+            <div id="tipResult" class="mt-8 p-6 text-lg text-gray-300 italic hidden glass-container text-left"></div>
+        </div>
+    </section>
+
+    <!-- AI-Powered Routine Builder Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-6 text-center glass-container p-8 md:p-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">✨ AI-Powered Routine Builder</h2>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+                Describe your skin concerns and get a sample routine from our AI dermatologist.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-4">
+                <input type="text" id="skinConcernInput" placeholder="e.g., Acne, fine lines, dark spots" class="flex-1 w-full md:w-auto px-4 py-2 rounded-lg bg-white/10 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-400">
+                <button id="generateRoutineButton" class="px-8 py-4 bg-fuchsia-400 text-slate-950 font-semibold rounded-lg shadow-xl glass-button">
+                    ✨ Get My Routine
+                </button>
+            </div>
+            <div id="loadingRoutineIndicator" class="mt-8 text-fuchsia-400 text-lg hidden">Generating routine...</div>
+            <div id="routineResult" class="mt-8 p-6 text-lg text-gray-300 italic hidden glass-container text-left whitespace-pre-wrap"></div>
+        </div>
+    </section>
+    
     <!-- Final Call to Action Section -->
     <section class="py-16">
         <div class="container mx-auto px-6 text-center glass-container p-8 md:p-12">
@@ -118,18 +254,202 @@
             <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
                 Get in touch with us directly on WhatsApp to discuss your skin concerns and schedule a consultation.
             </p>
-            <a href="https://wa.me/919214252580" target="_blank" class="inline-block px-8 py-4 bg-fuchsia-400 text-slate-950 text-lg font-semibold rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105 glass-button">
+            <a href="https://wa.me/911234567890" target="_blank" class="inline-block px-8 py-4 bg-fuchsia-400 text-slate-950 text-lg font-semibold rounded-lg shadow-xl transform transition-transform duration-300 hover:scale-105 glass-button">
                 Chat With Us
             </a>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="glass-container py-8">
+    <footer class="glass-container py-8 mt-16">
         <div class="container mx-auto px-6 text-center">
             <p class="text-gray-500">&copy; 2025 Skin Wellness Clinic. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        let slidePositions = {};
+
+        function getCarouselWidth(carouselId) {
+            const carousel = document.getElementById(carouselId);
+            return carousel.clientWidth;
+        }
+
+        function getNumSlides(trackId) {
+            const track = document.getElementById(trackId);
+            return track.children.length;
+        }
+
+        function nextSlide(carouselId, trackId) {
+            const track = document.getElementById(trackId);
+            const numSlides = getNumSlides(trackId);
+            let carouselWidth = getCarouselWidth(carouselId);
+            const cardWidth = track.children[0].clientWidth;
+
+            if (carouselWidth > cardWidth * (numSlides - 1)) {
+                return;
+            }
+
+            if (!slidePositions[trackId]) {
+                slidePositions[trackId] = 0;
+            }
+
+            slidePositions[trackId]++;
+
+            if (slidePositions[trackId] >= numSlides) {
+                slidePositions[trackId] = 0;
+            }
+            updateCarousel(track, slidePositions[trackId], cardWidth);
+        }
+
+        function prevSlide(carouselId, trackId) {
+            const track = document.getElementById(trackId);
+            const numSlides = getNumSlides(trackId);
+            let carouselWidth = getCarouselWidth(carouselId);
+            const cardWidth = track.children[0].clientWidth;
+
+            if (carouselWidth > cardWidth * (numSlides - 1)) {
+                return;
+            }
+
+            if (!slidePositions[trackId]) {
+                slidePositions[trackId] = 0;
+            }
+
+            slidePositions[trackId]--;
+
+            if (slidePositions[trackId] < 0) {
+                slidePositions[trackId] = numSlides - 1;
+            }
+            updateCarousel(track, slidePositions[trackId], cardWidth);
+        }
+
+        function updateCarousel(track, position, cardWidth) {
+            track.style.transform = `translateX(-${position * cardWidth}px)`;
+        }
+
+        // Handle window resize to reset carousel
+        window.addEventListener('resize', () => {
+             for (const trackId in slidePositions) {
+                slidePositions[trackId] = 0;
+                document.getElementById(trackId).style.transform = `translateX(0)`;
+            }
+        });
+
+        // AI-Powered Skincare Tip Feature
+        document.getElementById('generateTipButton').addEventListener('click', async () => {
+            const skinType = document.getElementById('skinTypeInput').value;
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const tipResult = document.getElementById('tipResult');
+
+            if (!skinType) {
+                tipResult.innerHTML = "Please enter your skin type.";
+                tipResult.classList.remove('hidden');
+                return;
+            }
+
+            loadingIndicator.classList.remove('hidden');
+            tipResult.classList.add('hidden');
+
+            const prompt = `As a professional dermatologist, provide a single, concise, and helpful skincare tip for someone with ${skinType} skin. Keep it under 50 words. Do not use Markdown or lists.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                tools: [{ "google_search": {} }],
+                systemInstruction: {
+                    parts: [{ text: "You are a professional dermatologist providing concise and helpful skincare tips." }]
+                }
+            };
+            
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API call failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    tipResult.innerHTML = `"${text}"`;
+                } else {
+                    tipResult.innerHTML = "Sorry, I couldn't generate a tip. Please try again.";
+                }
+
+            } catch (error) {
+                console.error("Error generating tip:", error);
+                tipResult.innerHTML = "An error occurred. Please try again later.";
+            } finally {
+                loadingIndicator.classList.add('hidden');
+                tipResult.classList.remove('hidden');
+            }
+        });
+
+        // AI-Powered Routine Builder
+        document.getElementById('generateRoutineButton').addEventListener('click', async () => {
+            const skinConcern = document.getElementById('skinConcernInput').value;
+            const loadingIndicator = document.getElementById('loadingRoutineIndicator');
+            const routineResult = document.getElementById('routineResult');
+
+            if (!skinConcern) {
+                routineResult.innerHTML = "Please describe your skin concerns.";
+                routineResult.classList.remove('hidden');
+                return;
+            }
+
+            loadingIndicator.classList.remove('hidden');
+            routineResult.classList.add('hidden');
+
+            const prompt = `As a professional dermatologist, provide a very brief sample daily skincare routine for someone with the following concerns: ${skinConcern}. Start with a 'Morning Routine:' section and then a 'Night Routine:' section.`;
+
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                tools: [{ "google_search": {} }],
+                systemInstruction: {
+                    parts: [{ text: "You are a professional dermatologist providing simple and effective skincare routines." }]
+                }
+            };
+            
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API call failed with status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                const text = result?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    routineResult.innerHTML = text;
+                } else {
+                    routineResult.innerHTML = "Sorry, I couldn't generate a routine. Please try again.";
+                }
+
+            } catch (error) {
+                console.error("Error generating routine:", error);
+                routineResult.innerHTML = "An error occurred. Please try again later.";
+            } finally {
+                loadingIndicator.classList.add('hidden');
+                routineResult.classList.remove('hidden');
+            }
+        });
+    </script>
 
 </body>
 </html>
